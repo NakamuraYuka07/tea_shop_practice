@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_10_135356) do
+ActiveRecord::Schema.define(version: 2021_11_10_144713) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "postalcode", default: "", null: false
+    t.string "address", default: "", null: false
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
+    t.string "kana_first_name", default: "", null: false
+    t.string "kana_last_name", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
