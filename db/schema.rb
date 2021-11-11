@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_11_141545) do
+ActiveRecord::Schema.define(version: 2021_11_11_144807) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -30,6 +30,22 @@ ActiveRecord::Schema.define(version: 2021_11_11_141545) do
     t.integer "qty", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "name", null: false
+    t.text "explanation", null: false
+    t.string "phonenumber", null: false
+    t.integer "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_companies_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
   end
 
   create_table "genres", force: :cascade do |t|
